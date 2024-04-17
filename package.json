@@ -6,15 +6,28 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/eslint": "^0.3.7",
+    "@nuxt/fonts": "^0.6.1",
     "@ts-rest/core": "^3.44.0",
+    "@unocss/reset": "^0.59.3",
     "axios": "^1.6.8",
     "nuxt": "^3.11.2",
+    "nuxt-swiper": "^1.2.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@nuxtjs/color-mode": "^3.4.0",
+    "@nuxtjs/device": "^3.1.1",
+    "@unocss/nuxt": "^0.59.3",
+    "@vue-macros/nuxt": "^1.9.30",
+    "nuxt-icon": "^0.6.10"
   }
 }
