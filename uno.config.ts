@@ -12,18 +12,19 @@ export default defineConfig({
   content: {
     filesystem: ["**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}"],
   },
+  disableNuxtInlineStyle: false,
   presets: [
     presetUno(),
     presetAttributify(),
     presetIcons(),
     presetTypography(),
-    presetWebFonts({
-      provider: "none",
-      fonts: {
-        baloo2: ["Baloo 2"],
-        quicksand: ["Quicksand"],
-      },
-    }),
+    // presetWebFonts({
+    //   provider: "none",
+    //   fonts: {
+    //     baloo2: ["Baloo 2"],
+    //     quicksand: ["Quicksand"],
+    //   },
+    // }),
     // @ts-ignore
     presetTagify({
       prefix: "un-",
@@ -36,4 +37,10 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
+  theme: {
+    fontFamily: {
+      baloo2: 'Baloo2',
+      quicksand: 'Quicksand',
+    },
+  },
 });

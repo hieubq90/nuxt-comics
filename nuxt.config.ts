@@ -21,8 +21,14 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "nuxt-icon",
   ],
+  colorMode: {
+    classSuffix: "",
+  },
   macros: {
     // configure plugin options, if needed
+  },
+  fonts: {
+    families: [{ name: "Baloo2", src: "/fonts/baloo2.ttf" }, { name: "Quicksand", src: "/fonts/quicksand.ttf" }],
   },
   postcss: {
     plugins: {
@@ -32,9 +38,6 @@ export default defineNuxtConfig({
       autoprefixer: {},
       cssnano: {},
     },
-  },
-  colorMode: {
-    classSuffix: "",
   },
   runtimeConfig: {
     public: {
