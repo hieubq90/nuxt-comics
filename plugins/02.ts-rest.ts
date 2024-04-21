@@ -1,13 +1,14 @@
-import { AxiosError, isAxiosError } from 'axios'
+import axios, { AxiosError, isAxiosError } from 'axios'
 import { z } from 'zod'
+import {
+    Chapter, ChapterDetail, Comic, Genre, GetComicsResult, SuggestedItem
+} from '~/types/schemas'
 
-import { initClient, initContract } from '@ts-rest/core'
+import { initContract } from '@ts-rest/core'
 import { initQueryClient } from '@ts-rest/vue-query'
 
-import { httpClient } from './axios'
-import { Chapter, ChapterDetail, Comic, Genre, GetComicsResult, SuggestedItem } from './schemas'
-
 import type { Method } from "axios";
+
 const c = initContract();
 
 const genreContact = c.router({
@@ -181,7 +182,7 @@ const comicContact = c.router({
   },
 });
 
-export const contact = c.router(
+const contact = c.router(
   {
     genres: genreContact,
     comics: comicContact,
@@ -189,54 +190,45 @@ export const contact = c.router(
   { pathPrefix: "/api/v1", strictStatusCode: true }
 );
 
-export const coreClient = initClient(contact, {
-  baseUrl: "https://comics-api.hieubq.io.vn",
-  baseHeaders: {},
-  api: async ({ path, method, headers, body }) => {
-    try {
-      const result = await httpClient.request({
-        method: method as Method,
-        url: path,
-        headers,
-        data: body,
-      });
-      return {
-        status: result.status,
-        body: result.data,
-        headers: new Headers(),
-      };
-    } catch (e: Error | AxiosError | any) {
-      if (isAxiosError(e)) {
-        return { status: 500, body: e.message, headers: new Headers() };
-      }
-      throw e;
-    }
-  },
-  credentials: "omit",
-});
+export default defineNuxtPlugin((nuxtApp) => {
+  const config = useRuntimeConfig();
+  console.log("API base URL:", config.public.apiURL);
 
-export const comicsClient = initQueryClient(contact, {
-  baseUrl: "https://comics-api.hieubq.io.vn",
-  baseHeaders: {},
-  api: async ({ path, method, headers, body }) => {
-    try {
-      const result = await httpClient.request({
-        method: method as Method,
-        url: path,
-        headers,
-        data: body,
-      });
-      return {
-        status: result.status,
-        body: result.data,
-        headers: new Headers(),
-      };
-    } catch (e: Error | AxiosError | any) {
-      if (isAxiosError(e)) {
-        return { status: 500, body: e.message, headers: new Headers() };
+  const httpClient = axios.create({
+    baseURL: config.public.apiURL,
+    withCredentials: false,
+  });
+
+  const comicsClient = initQueryClient(contact, {
+    baseUrl: config.public.apiURL,
+    baseHeaders: {},
+    api: async ({ path, method, headers, body }) => {
+      try {
+        const result = await httpClient.request({
+          method: method as Method,
+          url: path,
+          headers,
+          data: body,
+        });
+        return {
+          status: result.status,
+          body: result.data,
+          headers: new Headers(),
+        };
+      } catch (e: Error | AxiosError | any) {
+        if (isAxiosError(e)) {
+          return { status: 500, body: e.message, headers: new Headers() };
+        }
+        throw e;
       }
-      throw e;
-    }
-  },
-  credentials: "omit",
+    },
+    credentials: "omit",
+  });
+
+  return {
+    name: "ts-rest",
+    provide: {
+      comicsClient,
+    },
+  };
 });

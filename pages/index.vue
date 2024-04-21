@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { comicsClient } from '~/libs/ts-rest';
+const { $comicsClient } = useNuxtApp()
 
-const genres = comicsClient.genres.get.useQuery(['genres'])
+const genres = $comicsClient.genres.get.useQuery(['genres'])
 
 </script>
 

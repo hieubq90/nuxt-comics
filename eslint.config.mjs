@@ -1,5 +1,10 @@
 // @ts-check
-import withNuxt from "./.nuxt/eslint.config.mjs";
-import unocss from "@unocss/eslint-config/flat";
-// @ts-ignore
-export default withNuxt().append([unocss]);
+import antfu from "@antfu/eslint-config";
+import nuxt from "./.nuxt/eslint.config.mjs";
+
+export default nuxt(
+  antfu({
+    unocss: true,
+    formatters: true,
+  })
+);

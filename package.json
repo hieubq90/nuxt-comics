@@ -12,7 +12,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/eslint": "^0.3.7",
     "@nuxt/fonts": "^0.6.1",
     "@tanstack/vue-query": "^5.29.0",
     "@ts-rest/core": "^3.44.0",
@@ -29,6 +28,9 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.15.0",
+    "@nuxt/eslint": "^0.3.8",
+    "@nuxt/eslint-config": "^0.3.8",
     "@nuxtjs/color-mode": "^3.4.0",
     "@nuxtjs/device": "^3.1.1",
     "@unocss/eslint-config": "^0.59.4",
@@ -36,9 +38,13 @@
     "@unocss/postcss": "^0.59.4",
     "@unocss/preset-rem-to-px": "^0.59.4",
     "@unocss/preset-tagify": "^0.59.4",
+    "@vite-pwa/nuxt": "^0.6.0",
     "@vue-macros/nuxt": "^1.9.30",
+    "@vueuse/nuxt": "^10.9.0",
     "autoprefixer": "^10.4.19",
     "cssnano": "^6.1.2",
+    "eslint": "^9.1.0",
+    "eslint-plugin-format": "^0.1.1",
     "nuxt-icon": "^0.6.10",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",

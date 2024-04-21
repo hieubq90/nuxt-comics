@@ -1,5 +1,6 @@
 import { z } from 'zod'
-import { ChapterDetail, Comic, Genre } from '~/libs/schemas'
+
+import { ChapterDetail, Comic, Genre } from './schemas'
 
 export type IGenre = z.infer<typeof Genre>;
 export type IComic = z.infer<typeof Comic> & {
