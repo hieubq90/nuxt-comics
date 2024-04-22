@@ -2,12 +2,13 @@
 const { $comicsClient } = useNuxtApp()
 
 const genres = $comicsClient.genres.get.useQuery(['genres'])
-
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto py-5 px-3">
+  <main class="mx-auto max-w-6xl px-3 py-5">
     <span v-if="genres.isLoading.value">LOADING</span>
-    <p v-else>{{ JSON.stringify(genres.data.value?.body) }}</p>
-  </div>
+    <p v-else>
+      {{ JSON.stringify(genres.data.value?.body) }}
+    </p>
+  </main>
 </template>

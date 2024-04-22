@@ -1,6 +1,11 @@
 import {
-    defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts,
-    transformerDirectives, transformerVariantGroup
+  defineConfig,
+  presetAttributify,
+  presetIcons,
+  presetTypography,
+  presetUno,
+  transformerDirectives,
+  transformerVariantGroup,
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
 import { presetShadcn } from 'unocss-preset-shadcn'
@@ -10,7 +15,7 @@ import presetTagify from '@unocss/preset-tagify'
 
 export default defineConfig({
   content: {
-    filesystem: ["**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}"],
+    filesystem: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}'],
   },
   disableNuxtInlineStyle: false,
   presets: [
@@ -25,15 +30,15 @@ export default defineConfig({
     //     quicksand: ["Quicksand"],
     //   },
     // }),
-    // @ts-ignore
+    // @ts-expect-error
     presetTagify({
-      prefix: "un-",
+      prefix: 'un-',
     }),
-    //@ts-ignore
+    // @ts-expect-error
     presetRemToPx(),
     presetAnimations(),
     presetShadcn({
-      color: "green",
+      color: 'green',
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
@@ -43,4 +48,4 @@ export default defineConfig({
       quicksand: 'Quicksand',
     },
   },
-});
+})
