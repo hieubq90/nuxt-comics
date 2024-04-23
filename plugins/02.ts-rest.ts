@@ -1,18 +1,13 @@
 import axios, { isAxiosError } from 'axios'
 import { z } from 'zod'
+import {
+    Chapter, ChapterDetail, Comic, Genre, GetComicsResult, SuggestedItem
+} from '~/types/schemas'
 
 import { initContract } from '@ts-rest/core'
 import { initQueryClient } from '@ts-rest/vue-query'
 
-import type { Method } from 'axios'
-import {
-  Chapter,
-  ChapterDetail,
-  Comic,
-  Genre,
-  GetComicsResult,
-  SuggestedItem,
-} from '~/types/schemas'
+import type { AxiosError, Method } from 'axios'
 
 const c = initContract()
 
@@ -195,9 +190,8 @@ const contact = c.router(
   { pathPrefix: '/api/v1', strictStatusCode: true },
 )
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((_nuxtApp) => {
   const config = useRuntimeConfig()
-  console.log('API base URL:', config.public.apiURL)
 
   const httpClient = axios.create({
     baseURL: config.public.apiURL,
