@@ -1,14 +1,9 @@
 import {
-  defineConfig,
-  presetAttributify,
-  presetIcons,
-  presetTypography,
-  presetUno,
-  transformerDirectives,
-  transformerVariantGroup,
+    defineConfig, presetAttributify, presetIcons, presetTypography, presetUno,
+    transformerDirectives, transformerVariantGroup
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
-import { presetShadcn } from 'unocss-preset-shadcn'
+import { builtinColors, presetShadcn } from 'unocss-preset-shadcn'
 
 import presetRemToPx from '@unocss/preset-rem-to-px'
 import presetTagify from '@unocss/preset-tagify'
@@ -21,7 +16,12 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
-    presetIcons(),
+    presetIcons({
+      extraProperties: {
+        'display': 'inline-block',
+        'vertical-align': 'middle',
+      },
+    }),
     presetTypography(),
     // presetWebFonts({
     //   provider: "none",
@@ -37,9 +37,7 @@ export default defineConfig({
     // @ts-expect-error
     presetRemToPx(),
     presetAnimations(),
-    presetShadcn({
-      color: 'green',
-    }),
+    presetShadcn(builtinColors.map(c => ({ color: c }))),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   theme: {

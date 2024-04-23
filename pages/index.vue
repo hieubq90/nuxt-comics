@@ -6,7 +6,7 @@ const genres = $comicsClient.genres.get.useQuery(['genres'])
 
 <template>
   <main class="mx-auto max-w-6xl px-3 py-5">
-    <span v-if="genres.isLoading.value">LOADING</span>
+    <svg-loading-icon v-if="genres.isLoading.value" />
     <p v-else>
       {{ JSON.stringify(genres.data.value?.body) }}
     </p>

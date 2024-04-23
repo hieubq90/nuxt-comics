@@ -12,11 +12,11 @@ onMounted(() => {
     const heightOffset = document.documentElement.scrollTop
     showFloatIcon.value = heightOffset > 2000
   })
-  isLoading.value = false
-  setTimeout(() => {
-    if (loadingDiv.value)
-      loadingDiv.value.style.display = 'none'
-  }, 2000)
+  // isLoading.value = false
+  // setTimeout(() => {
+  //   if (loadingDiv.value)
+  //     loadingDiv.value.style.display = 'none'
+  // }, 2000)
 })
 
 function scrollToTop() {
@@ -31,23 +31,18 @@ watch(route, (route) => {
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
   <slot />
-  <div
-    ref="loadingDiv" :class="`fixed z-50 inset-0 bg-white flex items-center justify-center duration-300 ${isLoading
+  <div ref="loadingDiv" :class="`fixed z-50 inset-0 bg-white flex items-center justify-center duration-300 ${isLoading
       ? 'opacity-1 pointer-events-auto'
       : 'opacity-0 pointer-events-none'
-    }`"
-  >
-    <SvgLoadingIcon />
+    }`">
+    <svg-loading-icon />
   </div>
-  <button
-    :class="`fixed p-2 bottom-6 right-6 flex items-center justify-center aspect-square rounded-full shadow bg-gray-50 -rotate-45 duration-200 sm:bottom-6 sm:right-6 ${
+  <button :class="`fixed p-2 bottom-6 right-6 flex items-center justify-center aspect-square rounded-full shadow bg-gray-50 -rotate-45 duration-200 sm:bottom-6 sm:right-6 ${
       showFloatIcon
         ? 'opacity-1 pointer-events-auto'
         : 'opacity-0 pointer-events-none'
-    }`"
-    @click="scrollToTop"
-  >
+    }`" @click="scrollToTop">
     <Icon name="fluent:rocket-20-regular" size="30" />
   </button>
-  <Footer v-show="!isReading" />
+  <!-- <Footer v-show="!isReading" /> -->
 </template>
