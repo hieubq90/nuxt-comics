@@ -58,6 +58,7 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       standalone: false,
+      stylistic: true,
     },
   },
   // macros: {

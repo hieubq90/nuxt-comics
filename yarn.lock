@@ -2684,7 +2684,7 @@
   dependencies:
     "@unocss/eslint-plugin" "0.59.4"
 
-"@unocss/eslint-plugin@0.59.4":
+"@unocss/eslint-plugin@0.59.4", "@unocss/eslint-plugin@^0.59.4":
   version "0.59.4"
   resolved "https://registry.yarnpkg.com/@unocss/eslint-plugin/-/eslint-plugin-0.59.4.tgz#9544772ab0ba0ac2bdb6dacbe90d0d3f0e7eb6ed"
   integrity sha512-bWxr0ax0X8F97/JcQ8V34Zl4ZSPklMkYAExj+svfanng7i6ymBCmMDfSVcNjb7VJFP1ealNuEnJ9PJcV0N0aQQ==
