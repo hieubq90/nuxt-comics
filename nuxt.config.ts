@@ -83,12 +83,4 @@ export default defineNuxtConfig({
       apiURL: 'http://localhost:3001',
     },
   },
-  vite: {
-    vue: {
-      customElement: true,
-    },
-    vueJsx: {
-      mergeProps: true,
-    },
-  },
 })

@@ -23,19 +23,11 @@ export default defineConfig({
       },
     }),
     presetTypography(),
-    // presetWebFonts({
-    //   provider: "none",
-    //   fonts: {
-    //     baloo2: ["Baloo 2"],
-    //     quicksand: ["Quicksand"],
-    //   },
-    // }),
-    // @ts-expect-error
     presetTagify({
       prefix: 'un-',
     }),
-    // @ts-expect-error
     presetRemToPx(),
+    // @ts-expect-error
     presetAnimations(),
     presetShadcn(builtinColors.map(c => ({ color: c }))),
   ],
