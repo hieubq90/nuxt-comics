@@ -28,6 +28,7 @@ watch(route, (route) => {
 })
 </script>
 
+<!-- eslint-disable vue/no-multiple-template-root -->
 <template>
   <slot />
   <div

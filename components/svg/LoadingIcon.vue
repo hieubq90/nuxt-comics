@@ -10,10 +10,14 @@
         <stop offset="100%" stop-color="#3b82f6" />
       </linearGradient>
     </defs>
-    <circle class="loading-icon__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36"
-      stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
-    <line class="loading-icon__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36"
-      stroke-dasharray="1 165" stroke-linecap="round" />
+    <circle
+      class="loading-icon__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36"
+      stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)"
+    />
+    <line
+      class="loading-icon__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36"
+      stroke-dasharray="1 165" stroke-linecap="round"
+    />
   </svg>
 </template>
 
@@ -48,7 +52,6 @@
 }
 
 @keyframes ball {
-
   from,
   50% {
     animation-timing-function: ease-in;

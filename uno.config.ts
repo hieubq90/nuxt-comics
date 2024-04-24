@@ -1,5 +1,5 @@
 import {
-    defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, transformerDirectives
+  defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, transformerDirectives,
 } from 'unocss'
 import presetAnimations from 'unocss-preset-animations'
 import { builtinColors, presetShadcn } from 'unocss-preset-shadcn'

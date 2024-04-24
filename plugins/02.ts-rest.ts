@@ -1,13 +1,18 @@
 import axios, { isAxiosError } from 'axios'
 import { z } from 'zod'
-import {
-    Chapter, ChapterDetail, Comic, Genre, GetComicsResult, SuggestedItem
-} from '~/types/schemas'
 
 import { initContract } from '@ts-rest/core'
 import { initQueryClient } from '@ts-rest/vue-query'
 
-import type { AxiosError, Method } from 'axios'
+import type { Method } from 'axios'
+import {
+  Chapter,
+  ChapterDetail,
+  Comic,
+  Genre,
+  GetComicsResult,
+  SuggestedItem,
+} from '~/types/schemas'
 
 const c = initContract()
 
