@@ -52,7 +52,6 @@
 }
 
 @keyframes ball {
-
   from,
   50% {
     animation-timing-function: ease-in;

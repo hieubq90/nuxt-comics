@@ -5,7 +5,6 @@ import type {
   VueQueryPluginOptions,
 } from '@tanstack/vue-query'
 import { defineNuxtPlugin, useState } from '#imports'
-
 // Nuxt 3 app aliases
 
 export default defineNuxtPlugin((nuxt) => {
