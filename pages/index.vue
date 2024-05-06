@@ -12,5 +12,8 @@ const genres = $comicsClient.genres.get.useQuery(['genres'])
     </p>
     <span class="font-baloo2">Baloo 2</span>
     <span class="font-quicksand">Quicksand</span>
+    <UiButton>
+      My Button
+    </UiButton>
   </main>
 </template>
