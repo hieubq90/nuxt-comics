@@ -7,7 +7,7 @@ const loadingDiv = ref<HTMLDivElement>()
 const route = useRoute()
 
 onMounted(() => {
-  isReading.value = !!route.params.chapterId
+  isReading.value = !!route?.params?.chapterId
   document.addEventListener('scroll', () => {
     const heightOffset = document.documentElement.scrollTop
     showFloatIcon.value = heightOffset > 2000
@@ -24,7 +24,7 @@ function scrollToTop() {
 }
 
 watch(route, (route) => {
-  isReading.value = !!route.params.chapterId
+  isReading.value = !!route?.params?.chapterId
 })
 </script>
 

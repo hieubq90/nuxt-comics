@@ -1,4 +1,4 @@
-import { dehydrate, hydrate, QueryClient, VueQueryPlugin } from '@tanstack/vue-query'
+import { QueryClient, VueQueryPlugin, dehydrate, hydrate } from '@tanstack/vue-query'
 
 import type {
   DehydratedState,

@@ -7,12 +7,14 @@ useHead({
 </script>
 
 <template>
-  <VitePwaManifest />
-  <NuxtLayout>
-    <NuxtLoadingIndicator />
-    <NuxtPage />
-    <NuxtErrorBoundary />
-  </NuxtLayout>
+  <div class="theme-green">
+    <!-- <VitePwaManifest /> -->
+    <NuxtLayout>
+      <NuxtLoadingIndicator />
+      <NuxtPage />
+      <NuxtErrorBoundary />
+    </NuxtLayout>
+  </div>
 </template>
 
 <style>

@@ -1,24 +1,41 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { pwa } from './config/pwa'
+// import { pwa } from './config/pwa'
 import { appDescription } from './constants'
 
 export default defineNuxtConfig({
   ssr: true,
   css: ['@unocss/reset/tailwind.css', '~/assets/scss/main.scss'],
   modules: [
-    '@vueuse/nuxt',
-    // '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt', // '@nuxtjs/tailwindcss',
     '@unocss/nuxt',
     '@nuxtjs/device',
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
-    '@vite-pwa/nuxt',
+    // '@vite-pwa/nuxt',
     'nuxt-icon',
     '@nuxt/eslint',
+    // 'shadcn-nuxt'
   ],
+
+  experimental: {
+    // when using generate, payload js assets included in sw precache manifest
+    // but missing on offline, disabling extraction it until fixed
+    payloadExtraction: false,
+    renderJsonPayloads: true,
+    typedPages: true,
+  },
+
   colorMode: {
     classSuffix: '',
   },
+
+  components: [
+    {
+      path: '~/components',
+      extensions: ['.vue'],
+    },
+  ],
+
   app: {
     head: {
       charset: 'utf-8',
@@ -48,7 +65,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  pwa,
+  // pwa,
   devtools: { enabled: true },
   features: {
     // For UnoCSS
@@ -65,15 +82,15 @@ export default defineNuxtConfig({
       { name: 'Quicksand', src: '/fonts/quicksand.ttf' },
     ],
   },
-  postcss: {
-    plugins: {
-      'postcss-nested': {},
-      'postcss-import': {},
-      'postcss-url': {},
-      'autoprefixer': {},
-      'cssnano': {},
-    },
-  },
+  // postcss: {
+  //   plugins: {
+  //     'postcss-nested': {},
+  //     'postcss-import': {},
+  //     'postcss-url': {},
+  //     'autoprefixer': {},
+  //     'cssnano': {},
+  //   },
+  // },
   runtimeConfig: {
     public: {
       apiURL: 'http://localhost:3001',
